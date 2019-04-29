@@ -1,7 +1,7 @@
 import unittest
 from app.models import Post
 
-class NewsTest(unittest.TestCase):
+class PostTest(unittest.TestCase):
         '''
         Test class to test the behavior of the Post class
         '''

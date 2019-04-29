@@ -1,4 +1,4 @@
-alembic==1.0.9
+alembic==1.0.10
 blinker==1.4
 Click==7.0
 dominate==2.3.5
@@ -10,7 +10,7 @@ Flask-Mail==0.9.1
 Flask-Migrate==2.4.0
 Flask-Script==2.0.6
 Flask-SimpleMDE==0.3.0
-Flask-SQLAlchemy==2.3.2
+Flask-SQLAlchemy==2.4.0
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
 gunicorn==19.9.0
