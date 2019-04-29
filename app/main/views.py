@@ -6,7 +6,7 @@ from ..models import Post, Comment, User, Star
 from .. import db, photos
 import markdown2
 from ..request import get_quote
-
+from ..email import mail_message
 
 @main.route('/')
 def index():
@@ -47,9 +47,10 @@ def new_post():
         title = form.title.data
         description = form.description.data
         user_p = current_user
-
+        users = User.query.all()
         new_post = Post(user_p=current_user._get_current_object().id, title=title, description = description)
-        mail_message("New post","email/new_post",user.email,user=user)
+        for user in users:
+            mail_message("New post","email/new_post",user.email,user=users)
 
         new_post.save_post()
         posts = Post.query.order_by(Post.posted_p.desc()).all()
