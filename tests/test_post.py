@@ -10,7 +10,7 @@ class NewsTest(unittest.TestCase):
             '''
             Set up method that will run before every Test
             '''
-            self.new_post = Post(1 ,'New','New','New','New',0,0,'New','New')
+            self.new_post = Post(1 ,'New','New','New','New',0,'New','New')
 
         def test_instance(self):
             '''

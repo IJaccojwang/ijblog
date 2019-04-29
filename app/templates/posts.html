@@ -11,8 +11,8 @@
       <!-- Content -->
       <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
         <div>
-          <h3 class="card-title pt-2"><strong>{{post.title}}</strong></h3>
-          <p> {{post.description|truncate(425)}} </p>
+          <h1 class="card-title pt-2"><strong>{{post.title}}</strong></h1>
+          <p style="font-size:13px;text-align: justify"> {{post.description|truncate(425)}} </p>
             <a href="/post/{{post.id}}" class="white-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>
           <a href="{{url_for('main.new_comment',post_id = post.id)}}" class="btn btn-primary"> Add a comment/View comments</a>
         </div>
