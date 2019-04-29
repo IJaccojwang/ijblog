@@ -49,6 +49,7 @@ def new_post():
         user_p = current_user
 
         new_post = Post(user_p=current_user._get_current_object().id, title=title, description = description)
+        mail_message("New post","email/new_post",user.email,user=user)
 
         new_post.save_post()
         posts = Post.query.order_by(Post.posted_p.desc()).all()
