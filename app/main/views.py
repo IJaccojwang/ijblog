@@ -21,9 +21,21 @@ def index():
 
 
 @main.route('/posts', methods=['GET', 'POST'])
-def pickup():
+def posts():
     posts = Post.query.order_by(Post.posted_p.desc()).all()
     return render_template('posts.html', posts=posts)
+
+# @main.route('/post/<int:id>')
+# def post(id):
+
+#     '''
+#     View movie page function that returns the post details page and its data
+#     '''
+#     post = Post.query.filter_by(Post.id=id).all()
+#     title = f'{movie.title}'
+#     comments = Comment.query.filter_by(post.id=id).all()
+
+    return render_template('post.html',title = title,post = post,comments = comments)
 
 @main.route('/post/new', methods = ['GET','POST'])
 @login_required
