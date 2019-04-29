@@ -57,6 +57,23 @@ def new_post():
         return render_template('posts.html', posts=posts)
     return render_template('new_post.html', form=form)
 
+@main.route('/post/<int:id>/delete',methods = ['GET','POST'])
+@login_required
+def delete_post(id):
+    post = Post.query.filter_by(id=id).first()
+    comments = Comment.query.filter_by(id=id).all()
+    if post is None:
+        abort(404)
+    for comment in comments:
+        db.session.delete(comment)
+        db.session.commit()
+    db.session.delete(post)
+    db.session.commit()
+
+    return redirect(url_for('.posts',id=post.id))
+
+    return render_template('posts.html',form =form)
+
 
 @main.route('/comment/new/<int:post_id>', methods = ['GET','POST'])
 @login_required
