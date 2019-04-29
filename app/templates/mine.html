@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<p>Hi</p>
+    {% for post in posts %}
+        <p>{{post.title}}</p>
+        <p>{{post.description}}</p>
+        <p>{{post.posted_p}}</p>
+        <p>Posted by {{post.user.username}}</p>
+        <a href="{{url_for('main.star',post_id = post.id)}}"><i class="fas fa-heart"></i>Star<span>{{post.stars.count()}}</span></a>
+                <div class="panel-footer"><a href="{{url_for('main.new_comment',post_id = post.id)}}"> Add a comment</a>
+                
+    {% endfor %}
+
+{% endblock %}
