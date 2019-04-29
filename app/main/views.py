@@ -25,17 +25,16 @@ def posts():
     posts = Post.query.order_by(Post.posted_p.desc()).all()
     return render_template('posts.html', posts=posts)
 
-# @main.route('/post/<int:id>')
-# def post(id):
+@main.route('/post/<int:id>')
+def post(id):
 
-#     '''
-#     View movie page function that returns the post details page and its data
-#     '''
-#     post = Post.query.filter_by(Post.id=id).all()
-#     title = f'{movie.title}'
-#     comments = Comment.query.filter_by(post.id=id).all()
+    '''
+    View movie page function that returns the post details page and its data
+    '''
+    posts = Post.query.filter_by(id=id)
+    comments = Comment.query.filter_by(post_id=id).all()
 
-    return render_template('post.html',title = title,post = post,comments = comments)
+    return render_template('post.html',posts = posts,comments = comments)
 
 @main.route('/post/new', methods = ['GET','POST'])
 @login_required
