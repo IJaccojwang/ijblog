@@ -132,3 +132,22 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile', uname = uname))
     
+@main.route('/post/<int:id>/edit',methods = ['GET','POST'])
+@login_required
+def update_post(id):
+    post = Post.query.filter_by(id=id).first()
+    if post is None:
+        abort(404)
+
+    form = PostForm()
+
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.description = form.description.data
+
+        db.session.add(post)
+        db.session.commit()
+
+        return redirect(url_for('.post',id=post.id))
+
+    return render_template('new_post.html',form =form)
