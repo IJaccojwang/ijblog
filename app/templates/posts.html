@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-6">
+    <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+
+      <!-- Content -->
+      <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div>
+          <h3 class="card-title pt-2"><strong>{{post.title}}</strong></h3>
+          <p> {{post.description}} .Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+            optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+            Odit sed qui, dolorum!.</p>
+          <a href="{{url_for('main.new_comment',post_id = post.id)}}" class="btn btn-primary"> Add a comment/View comments</a>
+        </div>
+        
+      </div>
+    
+    </div>
+    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+        <ul class="list-unstyled list-inline font-small">
+          <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>{{post.posted_p}}</li>
+          <li class="list-inline-item pr-2">
+            <a class="white-text" href="{{url_for('main.star',post_id = post.id)}}"><i class="far fa-star"></i> Stars {{post.stars.count()}} </a></li> 
+          <input type=hidden value="{{ next or '' }}" name=next>
+        </ul>
+      </div>
+      <hr>
+    </div>
+                
+                
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
