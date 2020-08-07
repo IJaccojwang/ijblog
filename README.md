@@ -1,7 +1,7 @@
 # IJBlog
 
 ## Description
-#### This is my personal blog where I post new blogposts and users can comment and like thei favourites. Users can subscribe to receve emial notifications for new posts
+#### This is a blog for new blogposts and users can comment and like thei favourites. Users can subscribe to receve emial notifications for new posts
 #### By **Ian Jaccojwang**
 The user can:
 * See various blog posts
